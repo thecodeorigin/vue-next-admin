@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <h1>This is an home page</h1>
+    <el-button type="primary" v-wave>
+      Hehehe
+    </el-button>
   </div>
 </template>
 <script>

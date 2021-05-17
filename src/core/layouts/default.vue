@@ -1,11 +1,8 @@
 <template>
-  <el-container
-    class="default-layout"
-    style="height: 500px; border: 1px solid #eee"
-  >
+  <el-container class="default-layout">
     <Sidebar />
-    <el-container>
-      <Navbar />
+    <el-container direction="vertical">
+      <Navbar v-wave />
       <slot />
     </el-container>
   </el-container>

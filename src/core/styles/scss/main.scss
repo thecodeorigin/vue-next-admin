@@ -1,8 +1,14 @@
 @import './base/all.scss';
+@import './element-plus/all.scss';
 // Your global custom style
 
 * {
   font-family: 'Google Sans';
+}
+
+button {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 // Tailwindcss breakpoints:
