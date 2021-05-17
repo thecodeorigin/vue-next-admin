@@ -15,7 +15,7 @@ import { auth } from '@middleware/auth'
  * @typedef {import('vue-router').RouteRecordRaw} RouteRecordRaw
  * @type {Array<RouteRecordRaw>}
  */
- const routes = [
+const routes = [
   ...sandbox.routes,
   // Pages
   ...about.routes,

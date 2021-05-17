@@ -12,6 +12,9 @@ import { eventBusPlugin } from '@plugins/mitt'
 import { examplePlugin } from '@plugins/example'
 import { exampleDIPlugin } from '@plugins/exampleDI'
 import { errorHandlingPlugin } from '@plugins/error'
+
+import ElementPlus from 'element-plus'
+import 'element-plus/lib/theme-chalk/index.css'
 //
 import { utils } from '@utils'
 import Root from '@/Root.vue'
@@ -30,6 +33,7 @@ createApp(Root)
   .use(eventBusPlugin)
   .use(errorHandlingPlugin)
   .use(examplePlugin) // Used in home page
+  .use(ElementPlus)
   .provide('globalDI', exampleDIPlugin) // Used in home page
   .mixin(globalMixin)
   .mount('#app')
