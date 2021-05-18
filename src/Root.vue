@@ -80,6 +80,7 @@ export default defineComponent({
     this.$bus.on('toggleDarkMode', () => {
       this.toggleDarkMode()
     })
+    console.log(this.$router.getRoutes())
   },
 })
 </script>

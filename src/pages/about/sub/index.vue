@@ -10,8 +10,5 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'HomePage',
-  mounted() {
-    console.log(this.$router.getRoutes())
-  },
 })
 </script>
