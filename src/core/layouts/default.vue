@@ -1,8 +1,8 @@
 <template>
   <el-container class="default-layout">
-    <Sidebar />
+    <MySidebar />
     <el-container direction="vertical">
-      <Navbar v-wave />
+      <MyNavbar v-wave />
       <slot />
     </el-container>
   </el-container>
@@ -10,12 +10,9 @@
 
 <script>
 import { defineComponent } from 'vue'
-import { Navbar, Sidebar } from '@/core/components/layout'
+import { MyNavbar, MySidebar } from '@/core/components/layout'
 export default defineComponent({
   name: 'DefaultLayout',
-  components: {
-    Navbar,
-    Sidebar,
-  },
+  components: { MyNavbar, MySidebar },
 })
 </script>

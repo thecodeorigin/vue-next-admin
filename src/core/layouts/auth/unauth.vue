@@ -1,5 +1,5 @@
 <template>
-  <div class="unauth__layout overflow-hidden">
+  <div class="unauth-layout">
     <slot />
   </div>
 </template>
@@ -7,11 +7,12 @@
 <script>
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'unauthLayout',
+  name: 'UnauthLayout',
 })
 </script>
 <style lang="scss" scoped>
-.unauth__layout {
+.unauth-layout {
+  overflow: hidden;
   background-color: var(--color-theme-3);
   background-image: url('/img/bg-green.svg');
   background-position: center;

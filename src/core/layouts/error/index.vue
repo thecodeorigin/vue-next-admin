@@ -1,5 +1,5 @@
 <template>
-  <div class="error__layout">
+  <div class="error-layout">
     <slot />
   </div>
 </template>
@@ -10,7 +10,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-.error__layout {
+.error-layout {
   background-color: var(--color-danger-700);
   background-image: url('/img/bg-green.svg');
   background-position: center;

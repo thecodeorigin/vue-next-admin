@@ -1,5 +1,5 @@
 <template>
-  <div class="mobile__layout">
+  <div class="mobile-layout">
     <!-- Slot is required -->
     <slot />
   </div>
@@ -8,6 +8,6 @@
 <script>
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'mobileLayout',
+  name: 'MobileLayout',
 })
 </script>

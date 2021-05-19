@@ -43,7 +43,7 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  name: 'Sidebar',
+  name: 'MyElSidebar',
   props: {},
   setup() {
     const isCollapse = ref(false)

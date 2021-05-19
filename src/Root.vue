@@ -9,36 +9,34 @@
       <router-view />
     </component>
     <transition name="el-fade-in">
-      <Loading v-if="isLoading" />
+      <MyLoading v-if="isLoading" />
     </transition>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-// Import layout components here
-import defaultLayout from '@layouts/default.vue'
-// Auth
-import unauthLayout from '@layouts/auth/unauth.vue'
-import authLayout from '@layouts/auth/index.vue'
-// Error
-import errorLayout from '@layouts/error/index.vue'
-// Responsive
-import mobileLayout from '@layouts/responsive/mobile.vue'
+import {
+  LayoutDefault,
+  LayoutAuth,
+  LayoutUnauth,
+  LayoutError,
+  LayoutMobile,
+} from '@layouts'
 // Loading component
-import Loading from '@/core/components/layout/Loading.vue'
-import { camelCase } from 'lodash'
+import { MyLoading } from '@/core/components/layout'
+import { camelCase, startCase } from 'lodash'
 import { rootActions } from './store/enums'
 // App component
 export default defineComponent({
   name: 'App',
   components: {
-    defaultLayout,
-    unauthLayout,
-    authLayout,
-    errorLayout,
-    mobileLayout,
-    Loading,
+    LayoutDefault,
+    LayoutAuth,
+    LayoutUnauth,
+    LayoutError,
+    LayoutMobile,
+    MyLoading,
   },
   provide() {
     return {
@@ -61,8 +59,11 @@ export default defineComponent({
   computed: {
     layout() {
       return this.$route.meta.layout
-        ? camelCase(this.$route.meta.layout + '_layout')
-        : 'defaultLayout'
+        ? startCase(camelCase('Layout_' + this.$route.meta.layout)).replace(
+            / /g,
+            ''
+          )
+        : 'LayoutDefault'
     },
   },
   methods: {

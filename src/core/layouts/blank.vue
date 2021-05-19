@@ -1,5 +1,5 @@
 <template>
-  <div class="blank__layout">
+  <div class="blank-layout">
     <slot />
   </div>
 </template>
@@ -7,6 +7,6 @@
 <script>
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'blankLayout',
+  name: 'BlankLayout',
 })
 </script>
