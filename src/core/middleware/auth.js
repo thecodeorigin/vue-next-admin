@@ -16,7 +16,7 @@ export const auth = (to, from, next) => {
   if (to.meta?.authNotRequired) {
     // Then redirect user to home if they're authenticated
     if (auth) {
-      return next({ name: 'home' })
+      return next({ name: 'dashboard' })
     }
   }
   // If require authentication, check for auth

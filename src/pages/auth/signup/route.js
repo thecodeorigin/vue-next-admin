@@ -1,8 +1,8 @@
 export default {
-  path: 'sub',
+  name: 'auth-signup',
+  path: '/auth/signup',
   component: () => import('./index.vue'),
   meta: {
-    auth: false,
-    permissions: ['ALL'],
+    authNotRequired: true,
   },
 }

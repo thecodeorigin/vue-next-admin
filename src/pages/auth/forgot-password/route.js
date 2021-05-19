@@ -1,6 +1,6 @@
 export default {
-  name: 'signin',
-  path: '/signin',
+  name: 'auth-forgot-password',
+  path: '/auth/forgot-password',
   component: () => import('./index.vue'),
   meta: {
     authNotRequired: true,

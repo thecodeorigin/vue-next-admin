@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>This is an home page</h1>
+  <div class="dashboard">
+    <h1>This is an dashboard page</h1>
     <el-button type="primary" v-wave>
       Hehehe
     </el-button>
@@ -9,6 +9,6 @@
 <script>
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'HomePage',
+  name: 'DashboardPage',
 })
 </script>

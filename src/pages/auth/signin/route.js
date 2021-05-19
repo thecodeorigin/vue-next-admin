@@ -1,8 +1,8 @@
 export default {
-  path: '/',
+  name: 'auth-signin',
+  path: '/auth/signin',
   component: () => import('./index.vue'),
   meta: {
-    auth: false,
-    permissions: ['ALL'],
+    authNotRequired: true,
   },
 }

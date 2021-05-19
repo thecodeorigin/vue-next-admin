@@ -6,4 +6,7 @@ export default {
     layout: 'error',
     auth: false,
   },
+  options: {
+    hidden: true, // For sidebar
+  },
 }

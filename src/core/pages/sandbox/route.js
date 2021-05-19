@@ -5,4 +5,7 @@ export default {
   meta: {
     auth: false,
   },
+  options: {
+    hidden: true, // For sidebar
+  },
 }
