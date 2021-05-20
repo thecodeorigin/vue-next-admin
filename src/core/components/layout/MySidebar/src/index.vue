@@ -1,54 +1,37 @@
 <template>
   <el-menu
     default-active="2"
-    class="el-menu-vertical-demo"
     @open="handleOpen"
     @close="handleClose"
     :collapse="isCollapse"
   >
-    <el-submenu index="1">
-      <template #title>
-        <i class="el-icon-location"></i>
-        <span>Navigator One</span>
-      </template>
-      <el-menu-item-group>
-        <template #title><span>Group One</span></template>
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="Group Two">
-        <el-menu-item index="1-3">item three</el-menu-item>
-      </el-menu-item-group>
-      <el-submenu index="1-4">
-        <template #title><span>item four</span></template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
-      </el-submenu>
-    </el-submenu>
-    <el-menu-item index="2">
-      <i class="el-icon-menu"></i>
-      <template #title>Navigator Two</template>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <i class="el-icon-document"></i>
-      <template #title>Navigator Three</template>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <i class="el-icon-setting"></i>
-      <template #title>Navigator Four</template>
-    </el-menu-item>
+    <Branch
+      v-for="(branch, index) in sidebarTree.filter((item) => item.options)"
+      :key="branch.name"
+      :index="index"
+      :disabled="branch?.options?.disabled"
+      :label="branch?.options?.label"
+      :icon="branch?.options?.icon"
+      :children="branch?.children"
+    />
   </el-menu>
 </template>
 
 <script>
+import { sidebarTree } from '@/router'
 import { defineComponent, ref } from 'vue'
+import Branch from './Branch.vue'
 
 export default defineComponent({
   name: 'MyElSidebar',
-  props: {},
+  components: {
+    Branch,
+  },
   setup() {
     const isCollapse = ref(false)
+    console.log(sidebarTree)
 
-    return { isCollapse }
+    return { isCollapse, sidebarTree }
   },
   methods: {
     handleOpen(key, keyPath) {
@@ -62,11 +45,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.el-aside {
-  color: #333;
-}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 100vh;
+}
+.el-menu-item,
+.el-submenu__title {
+  span {
+    @apply ml-2;
+  }
 }
 </style>

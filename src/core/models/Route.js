@@ -1,6 +1,8 @@
 export class Route {
   required = ['name', 'path', 'component']
   /**
+   * If the options property is not specify, route won't be displayed in
+   * sidebar
    *
    * @param {{
    *  name: string,
@@ -14,7 +16,6 @@ export class Route {
    *    permissions?: string[]
    *  },
    *  options?: {
-   *    hidden?: boolean,
    *    label: string,
    *    icon: {
    *      type: string,

@@ -1,3 +1,5 @@
+import abc from './_id/route'
+import def from './create/route'
 import { Route } from '@/core/models/Route'
 
 export default new Route({
@@ -16,4 +18,5 @@ export default new Route({
       class: 'fas fa-tachometer-alt',
     },
   },
+  children: [abc, def],
 })

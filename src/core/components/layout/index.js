@@ -1,4 +1,6 @@
-export { default as MyFooter } from './MyFooter'
-export { default as MyLoading } from './MyLoading'
-export { default as MyNavbar } from './MyNavbar'
-export { default as MySidebar } from './MySidebar'
+import { MySidebar } from './MySidebar'
+import { MyFooter } from './MyFooter'
+import { MyLoading } from './MyLoading'
+import { MyNavbar } from './MyNavbar'
+
+export { MySidebar, MyFooter, MyLoading, MyNavbar }

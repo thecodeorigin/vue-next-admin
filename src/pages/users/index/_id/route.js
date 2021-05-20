@@ -1,11 +1,8 @@
 import { Route } from '@/core/models/Route'
-import edit from './_id/route'
-import index from './index/route'
-import create from './create/route'
 
 export default new Route({
-  name: 'users-wrapper',
-  path: '/users',
+  name: 'abc-id',
+  path: '/abc/:id',
   component: () => import('./index.vue'),
   meta: {
     auth: false,
@@ -13,11 +10,10 @@ export default new Route({
   },
   options: {
     // hidden: true, // For sidebar
-    label: 'Users management', // If left empty, it will take the title
+    label: 'Edit đas', // If left empty, it will take the title
     icon: {
       type: 'fa',
       class: 'fas fa-tachometer-alt',
     },
   },
-  children: [index, create, edit],
 })

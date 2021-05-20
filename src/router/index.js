@@ -7,7 +7,7 @@ import error404 from '@/core/pages/error/404/route'
 import { createRouter, createWebHistory } from 'vue-router'
 import { auth } from '@middleware/auth'
 
-export const routes = [
+const routes = [
   dashboard,
   users,
   authPages,
@@ -16,6 +16,8 @@ export const routes = [
   error500,
   error404,
 ]
+
+export const sidebarTree = routes
 
 export const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

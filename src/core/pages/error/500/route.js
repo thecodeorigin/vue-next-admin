@@ -8,7 +8,4 @@ export default new Route({
     layout: 'error',
     auth: false,
   },
-  options: {
-    hidden: true, // For sidebar
-  },
 })

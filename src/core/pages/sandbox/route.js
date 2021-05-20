@@ -7,7 +7,4 @@ export default new Route({
   meta: {
     auth: false,
   },
-  options: {
-    hidden: true, // For sidebar
-  },
 })

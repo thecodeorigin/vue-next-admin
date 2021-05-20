@@ -1,1 +1,1 @@
-export { default } from './src/index.vue'
+export { default as MySidebar } from './src/index.vue'
