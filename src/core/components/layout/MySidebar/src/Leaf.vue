@@ -1,5 +1,5 @@
 <template>
-  <el-menu-item :index="index" :disabled="disabled" v-wave>
+  <el-menu-item :index="index" :disabled="disabled">
     <MyIcon :icon="icon" />
     <template #title>
       <span class="el-menu__title-inner">{{ label }}</span>

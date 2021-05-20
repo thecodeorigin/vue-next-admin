@@ -17,7 +17,39 @@ const routes = [
   error404,
 ]
 
-export const sidebarTree = routes
+/**
+ * @typedef {import('@/core/models/Route')} Route
+ *
+ * @type {{
+ *  type: 'group' | 'route' | 'line' | 'logo' | 'block',
+ *  class?: string,
+ *  route?: Route,
+ *  groupTitle?: string,
+ *  groupChildren?: Route[]
+ * }}
+ *
+ */
+export const sidebarTree = [
+  {
+    type: 'logo',
+  },
+  {
+    type: 'route',
+    route: dashboard,
+  },
+  {
+    type: 'block',
+    class: 'mb-8',
+  },
+  {
+    type: 'group',
+    groupTitle: 'Administrator',
+    groupChildren: [users],
+  },
+  {
+    type: 'line',
+  },
+]
 
 export const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
