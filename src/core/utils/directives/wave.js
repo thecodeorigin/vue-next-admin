@@ -27,6 +27,11 @@ export default {
       }
 
       el.appendChild(circle)
+
+      // Remove element after animation end
+      setTimeout(() => {
+        circle.remove()
+      }, duration)
     })
   },
 }

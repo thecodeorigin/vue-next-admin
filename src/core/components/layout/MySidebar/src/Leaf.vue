@@ -1,5 +1,5 @@
 <template>
-  <el-menu-item :index="index" :disabled="disabled">
+  <el-menu-item :index="index" :disabled="disabled" v-wave>
     <MyIcon :icon="icon" />
     <template #title>
       <span class="el-menu__title-inner">{{ label }}</span>
@@ -12,6 +12,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'SidebarLeaf',
+  functional: true,
   components: {
     MyIcon,
   },

@@ -1,2 +1,33 @@
 $--font-path: "~element-plus/lib/theme-chalk/fonts";
 @import "~element-plus/packages/theme-chalk/src/index";
+
+.sidebar {
+  .el-menu-item, .el-submenu__title {
+    color: var(--color-sidebar-text-color) !important;
+    background-color: var(--color-sidebar-background-color) !important;
+    i {
+      color: var(--color-sidebar-text-color) !important;
+    }
+    &:hover {
+      color: var(--color-sidebar-hover-text-color) !important;
+      background-color: var(--color-sidebar-hover-background-color) !important;
+      i {
+        color: var(--color-sidebar-hover-text-color) !important;
+      }
+    }
+    &.is-active {
+      color: var(--color-sidebar-active-text-color) !important;
+      background-color: var(--color-sidebar-active-background-color) !important;
+      i {
+        color: var(--color-sidebar-active-text-color) !important;
+      }
+      &:hover {
+        color: var(--color-sidebar-active-text-color) !important;
+        background-color: var(--color-sidebar-active-background-color) !important;
+        i {
+          color: var(--color-sidebar-active-text-color) !important;
+        }
+      }
+    }
+  }
+}

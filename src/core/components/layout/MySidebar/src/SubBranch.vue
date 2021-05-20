@@ -1,7 +1,7 @@
 <template>
   <template v-if="children?.length > 0">
     <Branch
-      :index="`${index}`"
+      :index="index"
       :disabled="disabled"
       :label="label"
       :icon="icon"
@@ -9,12 +9,7 @@
     />
   </template>
   <template v-else>
-    <Leaf
-      :index="`${index}`"
-      :disabled="disabled"
-      :label="label"
-      :icon="icon"
-    />
+    <Leaf :index="index" :disabled="disabled" :label="label" :icon="icon" />
   </template>
 </template>
 <script>
@@ -24,6 +19,7 @@ import Leaf from './Leaf.vue'
 
 export default defineComponent({
   name: 'SidebarSubBranch',
+  functional: true,
   components: {
     Branch,
     Leaf,

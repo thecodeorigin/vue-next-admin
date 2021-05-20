@@ -13,7 +13,7 @@ export default new Route({
     label: 'Create user', // If left empty, it will take the title
     icon: {
       type: 'fa',
-      class: 'fas fa-tachometer-alt',
+      class: 'fas fa-user-plus',
     },
   },
 })

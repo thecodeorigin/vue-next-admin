@@ -4,6 +4,12 @@
 @import './fonts/all';
 
 :root {
+    --color-sidebar-text-color: #{$--color-sidebar-text-color};
+    --color-sidebar-active-text-color: #{$--color-sidebar-active-text-color};
+    --color-sidebar-hover-text-color: #{$--color-sidebar-hover-text-color};
+    --color-sidebar-background-color: #{$--color-sidebar-background-color};
+    --color-sidebar-active-background-color: #{$--color-sidebar-active-background-color};
+    --color-sidebar-hover-background-color: #{$--color-sidebar-hover-background-color};
     --color-theme-1: #{$--color-theme-1};
     --color-theme-1-50: #{$--color-theme-1-50};
     --color-theme-1-100: #{$--color-theme-1-100};

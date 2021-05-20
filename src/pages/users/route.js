@@ -16,7 +16,7 @@ export default new Route({
     label: 'Users management', // If left empty, it will take the title
     icon: {
       type: 'fa',
-      class: 'fas fa-tachometer-alt',
+      class: 'fas fa-users',
     },
   },
   children: [index, create, edit],

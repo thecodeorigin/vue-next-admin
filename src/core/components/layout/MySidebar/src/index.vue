@@ -1,14 +1,20 @@
 <template>
   <el-menu
-    default-active="2"
+    class="el-menu-vertical sidebar"
+    :collapse="isCollapse"
+    :default-active="$route.path"
+    background-color="var(--color-sidebar-background-color)"
+    text-color="var(--color-sidebar-text-color)"
+    active-text-color="var(--color-sidebar-active-text-color)"
     @open="handleOpen"
     @close="handleClose"
-    :collapse="isCollapse"
+    unique-opened
+    router
   >
     <Branch
-      v-for="(branch, index) in sidebarTree.filter((item) => item.options)"
-      :key="branch.name"
-      :index="index"
+      v-for="branch in sidebarTree.filter((item) => item.options)"
+      :key="branch.path"
+      :index="branch.path"
       :disabled="branch?.options?.disabled"
       :label="branch?.options?.label"
       :icon="branch?.options?.icon"
@@ -29,7 +35,6 @@ export default defineComponent({
   },
   setup() {
     const isCollapse = ref(false)
-    console.log(sidebarTree)
 
     return { isCollapse, sidebarTree }
   },
@@ -45,14 +50,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
+.el-menu-vertical:not(.el-menu--collapse) {
+  width: 240px;
   min-height: 100vh;
-}
-.el-menu-item,
-.el-submenu__title {
-  span {
-    @apply ml-2;
+
+  .el-menu-item,
+  .el-submenu__title {
+    span {
+      @apply ml-2;
+    }
   }
 }
 </style>

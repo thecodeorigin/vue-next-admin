@@ -9,9 +9,9 @@
       <span class="el-menu__title-inner">{{ label }}</span>
     </template>
     <SubBranch
-      v-for="(child, idx) in children"
-      :key="`sidebar-leaf-${child.name}-${index}-${idx}`"
-      :index="`${index}-${idx}`"
+      v-for="child in children.filter((item) => item.options)"
+      :key="child.path"
+      :index="child.path"
       :disabled="child?.options?.disabled"
       :label="child?.options?.label"
       :icon="child?.options?.icon"
@@ -20,7 +20,7 @@
   </el-submenu>
   <Leaf
     v-else
-    :index="`${index}`"
+    :index="index"
     :disabled="disabled"
     :label="label"
     :icon="icon"

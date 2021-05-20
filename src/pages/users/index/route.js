@@ -1,5 +1,3 @@
-import abc from './_id/route'
-import def from './create/route'
 import { Route } from '@/core/models/Route'
 
 export default new Route({
@@ -15,8 +13,7 @@ export default new Route({
     label: 'Users list', // If left empty, it will take the title
     icon: {
       type: 'fa',
-      class: 'fas fa-tachometer-alt',
+      class: 'fas fa-list-alt',
     },
   },
-  children: [abc, def],
 })
