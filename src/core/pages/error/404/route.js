@@ -1,4 +1,6 @@
-export default {
+import { Route } from '@/core/models/Route'
+
+export default new Route({
   name: '404',
   path: '/:pathMatch(.*)*',
   component: () => import('./index.vue'),
@@ -9,4 +11,4 @@ export default {
   options: {
     hidden: true, // For sidebar
   },
-}
+})

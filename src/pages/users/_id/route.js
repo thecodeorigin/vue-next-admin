@@ -1,4 +1,6 @@
-export default {
+import { Route } from '@/core/models/Route'
+
+export default new Route({
   name: 'users-id',
   path: '/users/:id',
   component: () => import('./index.vue'),
@@ -14,4 +16,4 @@ export default {
       class: 'fas fa-tachometer-alt',
     },
   },
-}
+})
