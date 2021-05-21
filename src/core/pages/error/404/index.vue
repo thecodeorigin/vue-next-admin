@@ -28,14 +28,8 @@
   </div>
 </template>
 <script>
-import { defineComponent, onMounted } from 'vue'
-// import { bus } from '@plugins/mitt'
+import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'notFoundErrorPage',
-  setup() {
-    onMounted(() => {
-      // bus.emit('layout', 'error')
-    })
-  },
 })
 </script>

@@ -9,6 +9,7 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'MyIcon',
+
   props: {
     icon: {
       type: Object,

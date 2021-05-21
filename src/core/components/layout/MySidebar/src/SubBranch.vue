@@ -19,7 +19,7 @@ import Leaf from './Leaf.vue'
 
 export default defineComponent({
   name: 'SidebarSubBranch',
-  functional: true,
+
   components: {
     Branch,
     Leaf,
