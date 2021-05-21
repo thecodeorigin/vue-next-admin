@@ -57,6 +57,7 @@
       @click="togleSidebarCollapse"
       :label="'Collapse sidebar'"
       :icon="{ type: 'fa', class: 'far fa-caret-square-left' }"
+      index="#"
     />
   </el-menu>
 </template>

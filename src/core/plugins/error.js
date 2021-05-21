@@ -14,8 +14,8 @@ export const errorHandlingPlugin = {
       })
     }
     // warnHandler: (msg, vm, trace) => void
-    app.config.warnHandler = (msg) => {
-      dev.warn(msg)
+    app.config.warnHandler = (msg, vm, trace) => {
+      dev.warn(msg, vm, trace)
     }
   },
 }
