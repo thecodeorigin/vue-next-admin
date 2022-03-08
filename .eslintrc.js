@@ -179,5 +179,12 @@ module.exports = {
       },
     },
   ],
-  ignorePatterns: ["node_modules/**", "**/*.config.js", "**/*.template.js", ".prettierrc.js"],
+  ignorePatterns: [
+    "node_modules/**",
+    "generator/*",
+    "**/*.config.js",
+    "**/*.template.js",
+    ".prettierrc.js",
+    "plopfile.js",
+  ],
 };

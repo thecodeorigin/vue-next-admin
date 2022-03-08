@@ -1,4 +1,4 @@
-# Olivia admin UI
+# Vue next Admin
 
 ## Project setup
 ```

@@ -2,6 +2,8 @@ import "virtual:windi.css";
 import "./core/styles/css/all.css";
 import "./core/styles/scss/all.scss";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import Root from "./Root.vue";
 
 import { createApp } from "vue";

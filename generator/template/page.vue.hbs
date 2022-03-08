@@ -1,13 +1,15 @@
 <template>
-  <div class="administration">
-    <h1 :class="$style.cssModuleClass">This is an administration page</h1>
+  <div class="dashboard">
+    <h1 :class="$style.cssModuleClass">This is a dashboard page</h1>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
-export default defineComponent({});
+export default defineComponent({
+  name: "{{ pascalCase moduleName }}Page",
+});
 </script>
 
 <style lang="scss" module>
