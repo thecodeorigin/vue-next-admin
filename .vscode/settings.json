@@ -128,5 +128,6 @@
   "[markdown]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 80
-  }
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
