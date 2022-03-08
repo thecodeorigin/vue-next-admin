@@ -1,1 +1,1 @@
-export const analyticsApi = {}
+export const analyticsApi = {};

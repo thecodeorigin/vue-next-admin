@@ -5,23 +5,25 @@
 
 module.exports = {
   compilerOptions: {
+    strict: true,
+    baseUrl: "./",
     target: "esnext",
     module: "esnext",
-    strict: true,
     jsx: "preserve",
     importHelpers: true,
     moduleResolution: "node",
-    skipLibCheck: true,
     esModuleInterop: true,
+    skipLibCheck: true,
     allowSyntheticDefaultImports: true,
+    allowJs: true,
     sourceMap: true,
-    baseUrl: "./",
-    types: [],
+    types: ["@types/node"],
     paths: {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
     },
     lib: ["esnext", "dom", "dom.iterable", "scripthost"],
   },
+  files: ["env.d.ts", "global.d.ts", "shims-vue.d.ts"],
   include: ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
   exclude: ["node_modules", "dist"],
 };

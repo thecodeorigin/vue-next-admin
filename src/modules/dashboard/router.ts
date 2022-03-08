@@ -1,5 +1,7 @@
-import { Layouts } from '@constants/layouts';
+import { Layouts } from "@constants/layouts";
 import { RouteRecordRaw } from "vue-router";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import DashboardPage from "./page.vue";
 
 export const dashboardRoutes: RouteRecordRaw = {
@@ -8,5 +10,5 @@ export const dashboardRoutes: RouteRecordRaw = {
   component: DashboardPage,
   meta: {
     layout: Layouts.DEFAULT,
-  }
-}
+  },
+};

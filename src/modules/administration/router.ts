@@ -1,5 +1,7 @@
-import { Layouts } from '@constants/layouts';
+import { Layouts } from "@constants/layouts";
 import { RouteRecordRaw } from "vue-router";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import AdministrationPage from "./page.vue";
 
 export const administrationRoutes: RouteRecordRaw = {
@@ -8,5 +10,5 @@ export const administrationRoutes: RouteRecordRaw = {
   component: AdministrationPage,
   meta: {
     layout: Layouts.DEFAULT,
-  }
-}
+  },
+};

@@ -1,8 +1,11 @@
 import { defineConfig } from "vite";
-import Components from 'unplugin-vue-components/vite';
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 import WindiCSS from "vite-plugin-windicss";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
+
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,8 +25,28 @@ export default defineConfig({
   plugins: [
     vue(),
     WindiCSS(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
     Components({
       dirs: ['src/core/components'],
+      resolvers: [ElementPlusResolver()],
     })
   ],
+  css: {
+    postcss: {
+      plugins: [
+        {
+          postcssPlugin: 'internal:charset-removal',
+          AtRule: {
+            charset: (atRule) => {
+              if (atRule.name === 'charset') {
+                atRule.remove();
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
 });

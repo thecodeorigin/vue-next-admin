@@ -1,1 +1,1 @@
-export const pluginsApi = {}
+export const pluginsApi = {};

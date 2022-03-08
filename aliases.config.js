@@ -16,27 +16,11 @@ const aliases = {
   "@types": "./src/types",
 };
 
-const prettierConfig = {
-  arrowParens: "always",
-  bracketSpacing: true,
-  endOfLine: "lf",
-  htmlWhitespaceSensitivity: "strict",
-  jsxSingleQuote: true,
-  printWidth: 100,
-  proseWrap: "never",
-  quoteProps: "consistent",
-  semi: false,
-  singleQuote: false,
-  tabWidth: 2,
-  trailingComma: "es5",
-  useTabs: false,
-  vueIndentScriptAndStyle: false,
-};
+const prettierConfig = require("./.prettierrc.js");
 
 module.exports = {
   webpack: {},
   tsconfig: {},
-  jsconfig: {},
 };
 
 for (const alias in aliases) {
@@ -53,24 +37,10 @@ for (const alias in aliases) {
         aliasTo + "/index.scss",
         aliasTo + "/index.css",
       ];
-
-  module.exports.jsconfig[alias + "/*"] = [aliasTo + "/*"];
-  module.exports.jsconfig[alias] = aliasTo.includes("/index.")
-    ? [aliasTo]
-    : [
-        aliasTo + "/index.js",
-        aliasTo + "/index.json",
-        aliasTo + "/index.vue",
-        aliasTo + "/index.scss",
-        aliasTo + "/index.css",
-      ];
 }
 
 const tsconfigTemplate = require("./tsconfig.template");
 const tsconfigPath = path.resolve(__dirname, "tsconfig.json");
-
-const jsconfigTemplate = require("./jsconfig.template");
-const jsconfigPath = path.resolve(__dirname, "jsconfig.json");
 
 function writeConfigFile(configPath, configTemplate, configFileName) {
   fs.writeFile(
@@ -86,7 +56,7 @@ function writeConfigFile(configPath, configTemplate, configFileName) {
       {
         ...prettierConfig,
         parser: "json",
-      },
+      }
     ),
     (error) => {
       if (error) {
@@ -94,12 +64,11 @@ function writeConfigFile(configPath, configTemplate, configFileName) {
         console.error("Error while creating tsconfig.json from aliases.config.js.");
         throw error;
       }
-    },
+    }
   );
 }
 
 writeConfigFile(tsconfigPath, tsconfigTemplate, "tsconfig");
-writeConfigFile(jsconfigPath, jsconfigTemplate, "jsconfig");
 
 function resolveSrc(_path) {
   return path.resolve(__dirname, _path);
