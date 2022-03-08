@@ -1,77 +1,106 @@
 // From vue-enterprise-template
 // See repo: https://github.com/chrisvfritz/vue-enterprise-boilerplate
-const path = require('path')
-const fs = require('fs')
-const prettier = require('prettier')
+const path = require("path");
+const fs = require("fs");
+const prettier = require("prettier");
 
 const aliases = {
-  '@': 'src',
-  '@core': 'src/core',
-  '@locales': 'src/locales',
-  '@pages': 'src/pages',
-  '@router': 'src/router',
-  '@styles': 'src/styles',
-  '@store': 'src/store',
-  '@use': 'src/use',
-  // Core access
-  '@theme': 'src/core/components/theme',
-  '@constants': 'src/core/constants',
-  '@layouts': 'src/core/layouts',
-  '@middleware': 'src/core/middleware',
-  '@mixins': 'src/core/mixins',
-  '@plugins': 'src/core/plugins',
-  '@apis': 'src/core/apis',
-  '@utils': 'src/core/utils',
-}
+  "@": "./src",
+  "@core": "./src/core",
+  "@components": "./src/core/components",
+  "@constants": "./src/core/constants",
+  "@layouts": "./src/core/layouts",
+  "@use": "./src/core/use",
+  "@utils": "./src/core/utils",
+  "@modules": "./src/modules",
+  "@types": "./src/types",
+};
+
+const prettierConfig = {
+  arrowParens: "always",
+  bracketSpacing: true,
+  endOfLine: "lf",
+  htmlWhitespaceSensitivity: "strict",
+  jsxSingleQuote: true,
+  printWidth: 100,
+  proseWrap: "never",
+  quoteProps: "consistent",
+  semi: false,
+  singleQuote: false,
+  tabWidth: 2,
+  trailingComma: "es5",
+  useTabs: false,
+  vueIndentScriptAndStyle: false,
+};
 
 module.exports = {
   webpack: {},
+  tsconfig: {},
   jsconfig: {},
-}
+};
 
 for (const alias in aliases) {
-  const aliasTo = aliases[alias]
-  module.exports.webpack[alias] = resolveSrc(aliasTo)
-  module.exports.jsconfig[alias + '/*'] = [aliasTo + '/*']
-  module.exports.jsconfig[alias] = aliasTo.includes('/index.')
+  const aliasTo = aliases[alias];
+  module.exports.webpack[alias] = resolveSrc(aliasTo);
+  module.exports.tsconfig[alias + "/*"] = [aliasTo + "/*"];
+  module.exports.tsconfig[alias] = aliasTo.includes("/index.")
     ? [aliasTo]
     : [
-        aliasTo + '/index.js',
-        aliasTo + '/index.json',
-        aliasTo + '/index.vue',
-        aliasTo + '/index.scss',
-        aliasTo + '/index.css',
-      ]
+        aliasTo + "/index.js",
+        aliasTo + "/index.ts",
+        aliasTo + "/index.json",
+        aliasTo + "/index.vue",
+        aliasTo + "/index.scss",
+        aliasTo + "/index.css",
+      ];
+
+  module.exports.jsconfig[alias + "/*"] = [aliasTo + "/*"];
+  module.exports.jsconfig[alias] = aliasTo.includes("/index.")
+    ? [aliasTo]
+    : [
+        aliasTo + "/index.js",
+        aliasTo + "/index.json",
+        aliasTo + "/index.vue",
+        aliasTo + "/index.scss",
+        aliasTo + "/index.css",
+      ];
 }
 
-const jsconfigTemplate = require('./jsconfig.template') || {}
-const jsconfigPath = path.resolve(__dirname, 'jsconfig.json')
+const tsconfigTemplate = require("./tsconfig.template");
+const tsconfigPath = path.resolve(__dirname, "tsconfig.json");
 
-fs.writeFile(
-  jsconfigPath,
-  prettier.format(
-    JSON.stringify({
-      ...jsconfigTemplate,
-      compilerOptions: {
-        ...(jsconfigTemplate.compilerOptions || {}),
-        paths: module.exports.jsconfig,
+const jsconfigTemplate = require("./jsconfig.template");
+const jsconfigPath = path.resolve(__dirname, "jsconfig.json");
+
+function writeConfigFile(configPath, configTemplate, configFileName) {
+  fs.writeFile(
+    configPath,
+    prettier.format(
+      JSON.stringify({
+        ...configTemplate,
+        compilerOptions: {
+          ...(configTemplate.compilerOptions || {}),
+          paths: module.exports[configFileName],
+        },
+      }),
+      {
+        ...prettierConfig,
+        parser: "json",
       },
-    }),
-    {
-      ...require('./.prettierrc'),
-      parser: 'json',
-    }
-  ),
-  (error) => {
-    if (error) {
-      console.error(
-        'Error while creating jsconfig.json from aliases.config.js.'
-      )
-      throw error
-    }
-  }
-)
+    ),
+    (error) => {
+      if (error) {
+        // eslint-disable-next-line no-console
+        console.error("Error while creating tsconfig.json from aliases.config.js.");
+        throw error;
+      }
+    },
+  );
+}
+
+writeConfigFile(tsconfigPath, tsconfigTemplate, "tsconfig");
+writeConfigFile(jsconfigPath, jsconfigTemplate, "jsconfig");
 
 function resolveSrc(_path) {
-  return path.resolve(__dirname, _path)
+  return path.resolve(__dirname, _path);
 }

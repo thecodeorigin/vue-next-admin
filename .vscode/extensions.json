@@ -2,6 +2,7 @@
   // See http://go.microsoft.com/fwlink/?LinkId=827846
   // for the documentation about the extensions.json format
   "recommendations": [
+    "johnsoncodehk.volar",
     // Syntax highlighting and more for .vue files
     // https://github.com/vuejs/vetur
     "octref.vetur",
@@ -24,7 +25,6 @@
 
     // SCSS intellisense
     // https://github.com/mrmlnc/vscode-scss
-    "mrmlnc.vscode-scss",
-
+    "mrmlnc.vscode-scss"
   ]
 }

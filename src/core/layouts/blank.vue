@@ -1,12 +1,12 @@
-<template>
-  <div class="blank-layout">
-    <slot />
-  </div>
-</template>
+<script lang="ts">
+import { defineComponent, resolveComponent, h } from 'vue'
 
-<script>
-import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'BlankLayout',
+  name: "BlankLayout",
+  setup() {
+    const RouterView = resolveComponent('router-view')
+
+    return () => h(RouterView)
+  }
 })
 </script>

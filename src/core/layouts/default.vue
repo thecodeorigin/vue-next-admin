@@ -1,18 +1,21 @@
 <template>
-  <el-container class="default-layout">
-    <MySidebar />
-    <el-container direction="vertical">
-      <MyNavbar v-wave />
-      <slot />
-    </el-container>
-  </el-container>
+  <div>
+    Default layout
+    <div id="nav">
+      <router-link to="/">Dashboard</router-link> |
+      <router-link to="/settings">Settings</router-link>
+    </div>
+    <router-view />
+  </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
-import { MyNavbar, MySidebar } from '@/core/components/layout'
+
 export default defineComponent({
-  name: 'DefaultLayout',
-  components: { MyNavbar, MySidebar },
+  name: "DefaultLayout",
+  setup() {
+    return {}
+  }
 })
 </script>
