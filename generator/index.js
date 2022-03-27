@@ -1,4 +1,4 @@
-export default function (
+module.exports = function (
   /** @type {import('plop').NodePlopAPI} */
   plop
 ) {
@@ -26,4 +26,4 @@ export default function (
       ),
     ],
   });
-}
+};

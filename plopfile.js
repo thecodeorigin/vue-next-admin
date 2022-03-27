@@ -1,3 +1,3 @@
-import propScript from "./generator/index.js";
+const propScript = require("./generator/index.js");
 
-export default propScript;
+module.exports = propScript;

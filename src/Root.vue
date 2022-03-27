@@ -3,6 +3,7 @@ import { defineComponent, h, computed } from "vue";
 import { ElConfigProvider } from "element-plus";
 import { useRoute } from "vue-router";
 import { Layouts } from "@constants/layouts";
+import { useRootStore } from "@core/store";
 
 import DefaultLayout from "@layouts/default.vue";
 import BlankLayout from "@layouts/blank.vue";
@@ -14,6 +15,7 @@ const LayoutMap = Object.freeze({
 
 export default defineComponent({
   setup() {
+    const rootStore = useRootStore();
     const route = useRoute();
 
     const layoutVNode = computed(() => {
@@ -22,13 +24,15 @@ export default defineComponent({
       return LayoutMap[layout] || DefaultLayout;
     });
 
+    const isDarkMode = computed(() => rootStore.$state.isDarkMode);
+
     return () =>
       h(
         ElConfigProvider,
         {
           size: "small",
         },
-        h(layoutVNode.value)
+        h("div", { class: ["min-h-screen", isDarkMode.value ? "dark" : ""] }, h(layoutVNode.value))
       );
   },
 });

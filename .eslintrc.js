@@ -183,6 +183,7 @@ module.exports = {
     "node_modules/**",
     "generator/*",
     "**/*.config.js",
+    "**/*.config.ts",
     "**/*.template.js",
     ".prettierrc.js",
     "plopfile.js",
