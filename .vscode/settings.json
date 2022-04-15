@@ -60,8 +60,19 @@
   "files.exclude": {
     "**/*.log": true,
     "**/*.log*": true,
+    "**/coverage": true,
     "**/dist": true,
-    "**/coverage": true
+    "aliases.config.js": true,
+    ".browserslistrc": true,
+    ".eslintignore": true,
+    ".stylelintignore": true,
+    ".prettierignore": true,
+    "auto-imports.d.ts": true,
+    "components.d.ts": true,
+    "global.d.ts": true,
+    "tsconfig.template.js": true,
+    "plopfile.js": true,
+    "_start.js": true,
   },
   "files.associations": {
     ".markdownlintrc": "jsonc"
